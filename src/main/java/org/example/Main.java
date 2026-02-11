@@ -1,18 +1,23 @@
-import org.example.Persona;
+package org.example;
 
 public class Main {
+
     public static void main(String[] args) {
-        //crear persona desde constructor vacio
-        Persona p1 = new Persona();
-        p1.setNombre("juanito");
-        p1.setEdad(26);
-        p1.setGenero("masculino");
 
-        //segunda persona creada usando constructor con todos los parametros
-        Persona p2 = new Persona("maria",23,"femenino");
+        Universidad uni = new Universidad("Universidad de Cundinamarca");
 
-        //mostrar persona
-        System.out.println(p1.toString());
-        System.out.println(p2.toString());
+        Curso curso1 = new Curso("Ingeniería de Software");
+
+        Estudiante e1 = new Estudiante("Juanito", 26, "masculino");
+        Estudiante e2 = new Estudiante("Maria", 23, "femenino");
+
+        // asociación
+        e1.inscribirse(curso1);
+        e2.inscribirse(curso1);
+
+        // composición
+        uni.agregarCurso(curso1);
+
+        curso1.mostrarEstudiantes();
     }
 }
